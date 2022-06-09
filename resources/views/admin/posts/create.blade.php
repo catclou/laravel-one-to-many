@@ -12,6 +12,16 @@
     
             <label for="title">Titolo</label>
             <input type="text" class="form-control mb-4" id="title" name="title" placeholder="Titolo del post">
+
+            <div class="form-group d-flex flex-column">
+                <label for="category">Categoria</label>
+                <select name="category_id" id="category">
+                    <option value="">Nessuna categoria</option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->label}}</option>
+                    @endforeach
+                </select>
+            </div>
     
             <label for="title">Contenuto</label>
             <textarea class="form-control mb-4" id="content" name="content" cols="30" rows="10" placeholder="Contenuto del post"></textarea>
