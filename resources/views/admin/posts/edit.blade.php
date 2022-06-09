@@ -13,6 +13,19 @@
     
             <label for="title">Titolo</label>
             <input type="text" class="form-control mb-4" id="title" name="title" placeholder="Titolo del post" value="{{ old('title', $post->title) }}">
+
+            <div class="form-group d-flex flex-column">
+                <label for="category">Categoria</label>
+                <select name="category_id" id="category">
+                    <option value="">Nessuna categoria</option>
+                    @foreach ($categories as $category)
+                        <option @if( old('category_id', $post->category_id) == $category->id ) selected @endif
+                                value="{{$category->id}}">
+                                    {{$category->label}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
     
             <label for="title">Content</label>
             <textarea class="form-control mb-4" id="content" name="content" cols="30" rows="10">{{ old('content', $post->content) }}</textarea>
