@@ -19,6 +19,7 @@
             <thead>
                 <tr>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Contenuto</th>
                     <th scope="col">Immagine</th>
                     <th scope="col">Data</th>
@@ -31,6 +32,13 @@
                 @forelse ($posts as $post)
                     <tr>
                         <th scope="row">{{ $post->title }}</th>
+                        <td>
+                            @if($post->Category)
+                            <span class="badge badge-pill badge-{{$post->Category->color}}">{{$post->Category->label}}</span>
+                            @else
+                                <span class="badge badge-pill badge-light"><i class="fa-solid fa-circle-xmark"></i> nessuna categoria</span>
+                            @endif
+                        </td>
                         <td>
                             <p>{{ $post->content }}</p>
                         </td>
