@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         $categories = Category::all();
-        // return view('admin.posts.index', compact('posts, categories'));
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         return view('admin.posts.index', compact('posts', 'categories'));
     }
 
