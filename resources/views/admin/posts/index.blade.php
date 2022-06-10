@@ -69,6 +69,12 @@
             </tbody>
         </table>
 
+        <div class="d-flex justify-content-center">
+            @if( $posts->hasPages() )
+                {{ $posts->links() }}
+            @endif
+        </div>
+
     </div>
 
     
